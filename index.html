@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>欢迎您来到多肉商店</title>
+	<link rel="stylesheet" href="index.css">
+	<script src="jquery-3.4.1.min.js"></script>
+</head>
+<body>
+<div class="header">
+	<div class="banner">
+		<div class="img">
+			<img src="images/head.jpg" alt="" style="display: block">
+			<img src="images/banner.jpg" alt="">
+			<img src="images/banner1.jpg" alt="">
+			<img src="images/banner2.jpg" alt="">
+			<img src="images/banner3.jpg" alt="">
+		</div>
+		<div class="btn">
+			<span class="active"></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<span class="prev"></span>
+		<span class="next"></span>
+
+	</div>
+<!-----------------------	登录   -------------------------->
+	<div class="login">
+		<div class="login-box">
+			<div class="avatar" style="background: url('images/denglu.png');"></div>
+		</div>
+	</div>
+	<div class="login_box">
+		<div class="login_box_content">
+			<img src="images/cha.png" class="login_close">
+			<!--登录切换按钮-->
+			<div class="login_tog">
+				<span class="active">账号登录</span>
+				<span>QQ登录</span>
+				<span>微信登录</span>
+			</div>
+			<!--登录切换显示的盒子-->
+			<div class="login_tog_box">
+				<div class="show">
+					<form action="">
+						<div>
+							<span>请输入手机号:</span>
+							<input type="text" name="" class="input1">
+
+						</div>
+						<p class="phone" style="display: none">请输入正确手机号</p>
+						<p class="phone1" style="display: none">请输入手机号</p>
+						<p class="phone2" style="display: none">输入成功</p>
+
+						<div>
+							<span>请输入密码:</span>
+							<input type="password" name="" class="input2">
+						</div>
+
+						<span class="dl">登录</span>
+					</form>
+					<script>
+						var input=document.querySelector(".show input");
+
+						input.onblur=function() {
+							var reg1 = /^1(3|5|7|6|9)\d{9}$/;
+							var reg2=/\S/;
+
+							if (reg2.test(input.value)) {
+								// console.log("输入成功");
+								if (reg1.test(input.value)) {
+									$('.phone2').css({display: "block"})
+									$('.phone').css({display: "none"})
+									$('.phone1').css({display: "none"})
+
+								} else
+								{
+									$('.phone').css({display: "flex", color: "red"})
+									$('.phone1').css({display: "none"})
+									$('.phone2').css({display: "none"})
+									input.value=""
+								}
+							} else {
+
+								$('.phone1').css({display: "flex", color: "red"})
+								$('.phone').css({display: "none"})
+								$('.phone2').css({display: "none"})
+
+
+							}
+						}
+
+
+						$(".dl").click(function () {
+							$('.phone2').css({display: "none"})
+							$('.phone').css({display: "none"})
+							$('.phone1').css({display: "none"})
+
+							if($('.input1').val().length>0){
+
+								if($('.input2').val().length>0){
+									document.querySelector(".login_box").style.display="";
+								}
+							}else {
+
+								document.querySelector(".login_box").style.display="block";
+
+							}
+
+							document.querySelector(".input1").value="";
+							document.querySelector(".input2").value="";
+
+
+						})
+
+					</script>
+				</div>
+				<div>
+					<form action="" class="form">
+						<div>
+							<span>请输入QQ号:</span>
+							<input type="text" name="" class="input3">
+
+						</div>
+						<p class="phone3" style="display: none">请输入正确QQ号</p>
+						<p class="phone4" style="display: none">请输入QQ号</p>
+						<p class="phone5" style="display: none">输入成功</p>
+
+						<div>
+							<span>请输入密码:</span>
+							<input type="password" name="" class="input4">
+						</div>
+
+						<div>
+							<span class="dl1">登录</span>
+							<span class="dl11">二维码登录</span>
+						</div>
+					</form>
+					<div class="er" style="opacity: 0">
+						<img src="images/er.jpg" alt="" style="margin: 0 auto" >
+						<p style="margin: 0 auto" class="dl111">账号登录</p>
+					</div>
+
+					<script>
+						var input1=document.querySelector(".input3");
+
+						input1.onblur=function() {
+							var reg1 = /^\+?[1-9][0-9]*$/;
+							var reg2=/\S/;
+
+							if (reg2.test(input1.value)) {
+								// console.log("输入成功");
+								if (reg1.test(input1.value)) {
+									$('.phone5').css({display: "block"})
+									$('.phone3').css({display: "none"})
+									$('.phone4').css({display: "none"})
+
+								} else
+								{
+									$('.phone3').css({display: "flex", color: "red"})
+									$('.phone4').css({display: "none"})
+									$('.phone5').css({display: "none"})
+									input1.value=""
+								}
+							} else {
+
+								$('.phone4').css({display: "flex", color: "red"})
+								$('.phone3').css({display: "none"})
+								$('.phone5').css({display: "none"})
+
+
+							}
+						}
+
+
+						$(".dl1").click(function () {
+							$('.phone3').css({display: "none"})
+							$('.phone4').css({display: "none"})
+							$('.phone5').css({display: "none"})
+
+							if($('.input3').val().length>0){
+
+								if($('.input4').val().length>0){
+									document.querySelector(".login_box").style.display="";
+								}
+							}else {
+
+								document.querySelector(".login_box").style.display="block";
+
+							}
+
+							document.querySelector(".input3").value="";
+							document.querySelector(".input4").value="";
+
+
+						})
+
+						$(".dl11").click(function () {
+							$('.form').css({opacity:"0"})
+							$('.er').css({opacity:"1"})
+						})
+						$('.dl111').click(function () {
+							$('.form').css({opacity:"1"})
+							$('.er').css({opacity:"0"})
+						})
+
+					</script>
+				</div>
+				<div>
+					<img src="images/er.jpg" alt="" style="margin: 0 auto" >
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+		<div class="border-radius">
+			<a href="rexiao.html">最新肉肉</a>
+		</div>
+		<div class="main">
+			<div class="view img1">
+				<img src="images/1.jpg" alt="">
+				<div class="text">
+					<h3>特玉莲</h3>
+					<p>多肉组合盆栽净化空气办公桌礼物套餐</p>
+				</div>
+			</div>
+			<div class="view img2">
+				<img src="images/2.jpg" alt="">
+				<div class="text">
+					<h3>霜之朝</h3>
+					<p>多肉组合盆栽净化空气办公桌礼物套餐</p>
+				</div>
+			</div>
+			<div class="view img3">
+				<img src="images/3.jpg" alt="">
+				<div class="text">
+					<h3>假昙花</h3>
+					<p>多肉组合盆栽净化空气办公桌礼物套餐</p>
+				</div>
+			</div>
+			<div class="view img4">
+				<img src="images/4.jpg" alt="">
+				<div class="text">
+					<h3>姬玉露</h3>
+					<p>多肉组合盆栽净化空气办公桌礼物套餐</p>
+				</div>
+			</div>
+			<div class="view img5">
+				<img src="images/5.jpg" alt="">
+				<div class="text">
+					<h3>冬美人</h3>
+					<p>多肉组合盆栽净化空气办公桌礼物套餐</p>
+				</div>
+			</div>
+			<div class="view img6">
+				<img src="images/6.jpg" alt="">
+				<div class="text">
+					<h3>吉娃莲</h3>
+					<p>多肉组合盆栽净化空气办公桌礼物套餐</p>
+				</div>
+			</div>
+			<div class="view img7">
+				<img src="images/7.jpg" alt="">
+				<div class="text">
+					<h3>紫珍珠</h3>
+					<p>多肉组合盆栽净化空气办公桌礼物套餐</p>
+				</div>
+			</div>
+			<div class="view img8">
+				<img src="images/8.jpg" alt="">
+				<div class="text">
+					<h3>量天尺</h3>
+					<p>多肉组合盆栽净化空气办公桌礼物套餐</p>
+				</div>
+			</div>
+		</div>
+		<div class="explain">
+			<p>多肉植物是指植物营养器官肥大的高等植物，通常具根、茎、叶三种营养器官和花(Flower ['flau?])、果实、种子三种繁殖器官。在园艺上，又称肉质植物或多肉花卉，但以多肉植物这个名称最为常用。全世界共有多肉植物一万余种，它们绝大部分属于高等植物(绝大多数是被子植物)。在植物分类上隶属几十个科，个别专家认为有67个科中含有多肉植物，但大多数专家认为只有50余科</p>
+		</div>
+		<div class="text1">
+			<a href="shipin.html" title="视频播放">偏安一隅  静静生活(视频播放)</a>
+		</div>
+		<div class="footer">品质保障|七天无理由退换货|特色服务体验</div>
+
+<div class="bottom-info">
+	<div class="info">Copyright © 2013-2016 huabaike.com All right reserved. 花百科 版权所有</div>
+	<div class="info"><a href="http://www.beian.miit.gov.cn/" rel="nofollow" target="_blank">鲁ICP备13030995号</a> 鲁公网安备 37021202000103号</div>
+
+</div>
+
+
+<div id="float" class="float-box">
+	<div class="item fankui">反馈意见</div>
+	<div class="item scrolltop showscrolltop">
+		<div class="text">返回顶部</div>
+	</div>
+</div>
+
+
+<script>
+	$(".btn span").click(function () {
+		$(this).addClass("active").siblings().removeClass("active")
+		$(".img img").eq($(this).index()).fadeIn().siblings().fadeOut();
+	})
+
+	$(".prev").click(function () {
+		var num=$(".img img:visible").prev().index()//获取当前显示标签的上一个标签位置序号
+		$(".btn span").eq(num).addClass("active").siblings().removeClass("active")
+		$(".img img").eq(num).fadeIn().siblings().fadeOut();
+	})
+	$(".next").click(Fn)
+
+	function Fn(){
+		var num=$(".img img:visible").next().index()<0?0:$(".img img:visible").next().index();
+		$(".btn span").eq(num).addClass("active").siblings().removeClass("active")
+		$(".img img").eq(num).fadeIn().siblings().fadeOut();
+	}
+	var T=setInterval(Fn,3000);
+
+	$(".banner").hover(function () {
+
+		clearInterval(T);
+	},function () {
+		T=setInterval(Fn,3000);
+	})
+
+	$(".img1").click(function () {
+		$(location).attr("href","Img1.html")
+	})
+	$(".img2").click(function () {
+		$(location).attr("href","Img2.html")
+	})
+	$(".img3").click(function () {
+		$(location).attr("href","Img3.html")
+	})
+	$(".img4").click(function () {
+		$(location).attr("href","Img4.html")
+	})
+	$(".img5").click(function () {
+		$(location).attr("href","Img5.html")
+	})
+	$(".img6").click(function () {
+		$(location).attr("href","Img6.html")
+	})
+	$(".img7").click(function () {
+		$(location).attr("href","Img7.html")
+	})
+	$(".img8").click(function () {
+		$(location).attr("href","Img8.html")
+	})
+
+	$(document).scroll(function () {
+		if($(document).scrollTop()>=200){
+			$(".showscrolltop").fadeIn();
+		}else {
+			$(".showscrolltop").fadeOut();
+		}
+	})
+	$(".showscrolltop").click(function () {
+
+		$("html").animate({scrollTop:0},300);
+	})
+
+//	-------------------登录-------------------
+	/*-----登录的弹窗代码------*/
+	//登录的按钮
+	var btn1=document.querySelector(".login");
+	//关闭的登录的按钮
+	var btn2=document.querySelector(".login_close");
+	//登录的窗口标签
+	var box=document.querySelector(".login_box");
+
+	//1.点击登录按钮 时 让登录的窗口标签显示
+	btn1.onclick=function(){
+		box.style.display="block";
+	}
+	//2.点击关闭登录按钮 时 让登录的窗口标签隐藏
+	btn2.onclick=function(){
+		box.style.display="";
+	}
+
+	/*--------登录窗口中切换登录方式的效果----------*/
+	//选中切换登录方式的按钮
+	var login_tog_btn=document.querySelectorAll(".login_tog span");
+	//选中切换登录方式显示的盒子容器
+	var login_tog_box=document.querySelectorAll(".login_tog_box>div");
+
+
+
+	function tog(index){
+		login_tog_btn[index].onclick=function(){
+			//在实现点击按钮颜色变化前，先要把所有的按钮颜色进行清空
+			login_tog_btn[0].className=""
+			login_tog_btn[1].className=""
+			login_tog_btn[2].className=""
+			//让你点击的按钮有颜色
+			login_tog_btn[index].className="active"
+
+			//在实现盒子显示之前，先让所有的盒子都隐藏
+			login_tog_box[0].className="";
+			login_tog_box[1].className="";
+			login_tog_box[2].className="";
+			//让对应的盒子显示
+			login_tog_box[index].className="show";
+		}
+	}
+	tog(0)
+	tog(1)
+	tog(2)
+
+</script>
+
+</body>
+</html>
